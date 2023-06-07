@@ -15,12 +15,10 @@ fn part_1(puzzle_input: &Vec<String>) -> f32 {
 }
 
 fn part_2(puzzle_input: &Vec<String>) -> i32 {
-    let mut total_mass = 0;
-    for i in puzzle_input.iter().map(|s| s.parse::<i32>().unwrap()) {
-        total_mass += calculate_fuel(i);
-    }
-
-    return total_mass;
+    return puzzle_input
+        .iter()
+        .map(|s| calculate_fuel(s.parse().unwrap()))
+        .sum();
 }
 
 fn calculate_fuel(module: i32) -> i32 {
